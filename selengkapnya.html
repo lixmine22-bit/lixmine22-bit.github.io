@@ -3,7 +3,74 @@
 <head>
     <title>Seputar Ekonomi Indonesia</title>
 </head>
+/* Container tabel */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    margin: 20px 0;
+}
 
+/* Header tabel */
+table thead th {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+    padding: 16px 18px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: none;
+}
+
+/* Isi tabel */
+table tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #e8edf5;
+    transition: background-color 0.2s ease;
+}
+
+/* Warna baris selang-seling */
+table tbody tr:nth-child(even) {
+    background-color: #f8faff;
+}
+
+/* Efek hover pada baris */
+table tbody tr:hover {
+    background-color: #eaf1ff;
+}
+
+/* Hilangkan garis bawah pada baris terakhir */
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Sudut header */
+table thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+table thead th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* Tampilan responsif */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    table thead th,
+    table tbody td {
+        padding: 10px 12px;
+    }
+}
 <body bgcolor="#eded6d">
 
     <table border="1" width="900" align="center">

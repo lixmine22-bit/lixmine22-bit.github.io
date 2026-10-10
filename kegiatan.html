@@ -1,91 +1,146 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Kegiatan</title>
+
+    <style>
+        /* BACKGROUND KUNING PASTEL */
+        body {
+            background-color: #fff4a8;
+            font-family: Arial, sans-serif;
+            color: #66552b;
+            margin: 0;
+            padding: 30px 10px;
+        }
+
+        /* TABEL UTAMA */
+        table {
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+            border: 3px solid #e8cf57;
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 22px;
+            overflow: hidden;
+            background-color: #fffdf0;
+            box-shadow: 0 10px 25px rgba(180, 145, 35, 0.22);
+        }
+
+        /* SEL TABEL */
+        td {
+            padding: 18px;
+            border: 1px solid #f3e5a0;
+            transition: background-color 0.3s ease;
+        }
+
+        /* HEADER */
+        tr:first-child td {
+            background-color: #ffdf63;
+            color: #604b15;
+            padding: 24px;
+        }
+
+        h1 {
+            color: #70551a;
+        }
+
+        h2 {
+            color: #70551a;
+        }
+
+        h3 {
+            color: #96751c;
+        }
+
+        /* MENU NAVIGASI */
+        tr:nth-child(2) td {
+            background-color: #fff0a6;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* HYPERLINK */
+        a {
+            color: #98700b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #d49b00;
+            text-decoration: underline;
+        }
+
+        /* EFEK HOVER ISI TABEL */
+        tr:nth-child(3) td:hover {
+            background-color: #fff6c7;
+        }
+
+        /* LIST TAUTAN */
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* GARIS PEMISAH */
+        hr {
+            border: none;
+            border-top: 1px solid #e8cf57;
+            margin: 22px 0;
+        }
+
+        /* FOOTER */
+        tr:last-child td {
+            background-color: #ffe477;
+            color: #604b15;
+        }
+
+        /* RESPONSIVE UNTUK HP */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            table {
+                width: 100%;
+                font-size: 13px;
+                border-radius: 16px;
+            }
+
+            td {
+                padding: 10px;
+                overflow-wrap: anywhere;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
-/* Container tabel */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333333;
-    margin: 20px 0;
-}
 
-/* Header tabel */
-table thead th {
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
-    color: #ffffff;
-    padding: 16px 18px;
-    text-align: left;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    border: none;
-}
-
-/* Isi tabel */
-table tbody td {
-    padding: 14px 18px;
-    border-bottom: 1px solid #e8edf5;
-    transition: background-color 0.2s ease;
-}
-
-/* Warna baris selang-seling */
-table tbody tr:nth-child(even) {
-    background-color: #f8faff;
-}
-
-/* Efek hover pada baris */
-table tbody tr:hover {
-    background-color: #eaf1ff;
-}
-
-/* Hilangkan garis bawah pada baris terakhir */
-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Sudut header */
-table thead th:first-child {
-    border-top-left-radius: 12px;
-}
-
-table thead th:last-child {
-    border-top-right-radius: 12px;
-}
-
-/* Tampilan responsif */
-@media screen and (max-width: 768px) {
-    table {
-        font-size: 12px;
-    }
-
-    table thead th,
-    table tbody td {
-        padding: 10px 12px;
-    }
-}
-<body bgcolor="#eded6d">
+<body>
 
 <table border="1" width="900" align="center">
-            <!-- HEADER -->
+
+    <!-- HEADER -->
     <tr>
-        <td colspan="2" align="center" bgcolor="#a2dcf5">
+        <td colspan="2" align="center">
             <font color="black">
-            <h1>Website Jasmine</h1>
-            <i>Nama saya jasmine</i>
+                <h1>Website Jasmine</h1>
+                <i>Nama saya jasmine</i>
             </font>
         </td>
     </tr>
 
-            <!-- MENU 4 HYPERLINK -->
-<tr>
+    <!-- MENU 4 HYPERLINK -->
+    <tr>
         <td colspan="2" align="center">
             <a href="index.html">Beranda</a> |
             <a href="Profil.html">Profil</a> |
@@ -94,20 +149,27 @@ table thead th:last-child {
         </td>
     </tr>
 
-            <!-- ISI -->
-<tr>
+    <!-- ISI -->
+    <tr>
         <td>
             <h2>Kepindahan ke Persija Jakarta</h2>
             <p>
                 Marselino kembali ke Indonesia di penghujung bursa transfer Super League 2026/2027 dan bereuni dengan pelatih Shin Tae-yong serta beberapa rekan Timnas Indonesia.
             </p>
+
             <hr>
+
             <h2>Fokus Pemulihan Cedera</h2>
             <p>
                 Saat ini ia sedang dalam masa pemulihan dan rehabilitasi setelah menjalani operasi lutut (meniskus) di Sevilla, Spanyol, pada 12 Agustus 2026 akibat cedera saat persiapan Timnas.
             </p>
-            <hr><h2>Tujuan Utama</h2>
-            <p>Bergabung dengan klub ibu kota untuk mengembalikan kondisi kebugaran fisik (<em class="zhvwWe" data-sfc-cp="" jsaction="" jscontroller="LFsGHb#ycPkjf" data-sfc-root="ep" jsuid="JfXSIb_1c" data-complete="true" data-copy-service-computed-style="font-family: &quot;Google Sans&quot;, Arial, sans-serif, &quot;Noto Color Emoji&quot;; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(230, 232, 240);" style="font-family: &quot;Google Sans&quot;, Arial, sans-serif, &quot;Noto Color Emoji&quot;; font-size: 16px; margin: 0px; border-bottom: 0px rgb(230, 232, 240);">fitness<!--TgQPHd|||[]--></em>) serta performa terbaiknya</p>
+
+            <hr>
+
+            <h2>Tujuan Utama</h2>
+            <p>
+                Bergabung dengan klub ibu kota untuk mengembalikan kondisi kebugaran fisik (<em>fitness</em>) serta performa terbaiknya.
+            </p>
         </td>
 
         <!-- TAUTAN LINK -->
@@ -121,19 +183,24 @@ table thead th:last-child {
             </ol>
         </td>
     </tr>
-        <!-- FOOTER -->
-  <tr bgcolor="#a2dcf5">
-    <td colspan="2" align="center">
-        <font color="black">
-            <p>Website Jasmine</p>
-        </font>
-<p align="right">
-                <font color="4CAF50" size="2">
+
+    <!-- FOOTER -->
+    <tr>
+        <td colspan="2" align="center">
+            <font color="black">
+                <p>Website Jasmine</p>
+            </font>
+
+            <p align="right">
+                <font color="#4CAF50" size="2">
                     &copy; 2026 Jasmine
                 </font>
             </p>
-    </td>
-</tr>
+        </td>
+    </tr>
+
 </table>
+
 </body>
 </html>
+```

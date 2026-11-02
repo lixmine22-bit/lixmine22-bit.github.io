@@ -1,96 +1,340 @@
-
+```html
 <!DOCTYPE html>
 <html>
 <head>
     <title>Seputar Ekonomi Indonesia</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* BACKGROUND KUNING PASTEL */
-        body {
-            background-color: #fff4a8;
-            font-family: Arial, sans-serif;
-            color: #66552b;
-            margin: 0;
-            padding: 30px 10px;
+        :root {
+            --honey: #FFD447;
+            --honey-bright: #FFC629;
+            --honey-soft: #FFF0A3;
+            --honey-pale: #FFF9D8;
+            --pooh: #87552D;
+            --pooh-dark: #654022;
+            --caramel: #C78A49;
+            --cream: #FFFCF1;
+            --piglet: #F8C4D3;
+            --piglet-light: #FFE4EB;
+            --piglet-dark: #B85F7B;
+            --forest: #C6E2A5;
+            --forest-light: #E7F3D4;
+            --forest-dark: #587743;
+            --sky: #C9E9F5;
+            --sky-dark: #558EA8;
+            --lavender: #DED1F5;
+            --orange: #FFB36B;
+            --white: #FFFFFF;
         }
 
-        /* TABEL UTAMA */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--honey-pale);
+            background-image:
+                radial-gradient(circle, rgba(255, 212, 71, 0.45) 2px, transparent 2px),
+                radial-gradient(circle, rgba(248, 196, 211, 0.4) 2px, transparent 2px),
+                radial-gradient(circle, rgba(198, 226, 165, 0.4) 2px, transparent 2px);
+            background-size: 45px 45px, 60px 60px, 75px 75px;
+            background-position: 0 0, 20px 25px, 35px 10px;
+            background-attachment: fixed;
+            font-family: 'Nunito', sans-serif;
+            color: var(--pooh-dark);
+            margin: 0;
+            padding: 30px 10px;
+            position: relative;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        body::before {
+            background: var(--piglet);
+            top: -65px;
+            left: -65px;
+        }
+
+        body::after {
+            background: var(--forest);
+            bottom: -65px;
+            right: -65px;
+        }
+
         table {
             width: 900px;
             max-width: 100%;
             margin: auto;
-            border: 3px solid #e8cf57;
+            border: 5px solid var(--honey);
             border-spacing: 0;
             border-collapse: separate;
-            border-radius: 22px;
+            border-radius: 24px;
             overflow: hidden;
-            background-color: #fffdf0;
-            box-shadow: 0 10px 25px rgba(180, 145, 35, 0.22);
+            background-color: var(--cream);
+            box-shadow:
+                0 10px 25px rgba(76, 139, 132, 0.20),
+                0 0 0 5px rgba(255, 255, 255, 0.7);
+            position: relative;
         }
 
-        /* SEL TABEL */
         td {
             padding: 18px;
-            border: 1px solid #f3e5a0;
+            border: 1px solid rgba(199, 138, 73, 0.2);
             transition: background-color 0.3s ease;
         }
 
-        /* HEADER */
         tr:first-child td {
-            background-color: #ffdf63;
-            color: #604b15;
-            padding: 24px;
+            background: linear-gradient(135deg, #FFE477, #FFD447, #FFC629);
+            color: var(--pooh-dark);
+            padding: 28px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px dashed var(--caramel);
+        }
+
+        tr:first-child td::before {
+            content: "🌼";
+            position: absolute;
+            left: 25px;
+            top: 20px;
+            font-size: 30px;
+            animation: flowerWiggle 3s ease-in-out infinite;
+        }
+
+        tr:first-child td::after {
+            content: "🍯";
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 30px;
+            animation: honeyFloat 3s ease-in-out infinite;
         }
 
         h1 {
-            color: #70551a;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--pooh-dark);
+            font-size: 34px;
+            margin: 0 0 5px;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.65);
+            letter-spacing: 1px;
         }
 
-        h2 {
-            color: #70551a;
+        tr:first-child i {
+            font-family: 'Nunito', sans-serif;
+            color: var(--pooh);
+            font-weight: 700;
+            font-size: 14px;
         }
 
-        h3 {
-            color: #96751c;
-        }
-
-        /* MENU NAVIGASI */
         tr:nth-child(2) td {
-            background-color: #fff0a6;
+            background: linear-gradient(90deg, var(--piglet-light), var(--honey-pale), var(--forest-light));
             text-align: center;
-            padding: 16px;
+            padding: 16px 10px;
+            border-bottom: 3px dotted var(--caramel);
         }
 
-        /* HYPERLINK */
         a {
-            color: #98700b;
+            color: var(--piglet-dark);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 900;
             transition: 0.3s;
         }
 
+        tr:nth-child(2) a {
+            display: inline-block;
+            background: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid var(--piglet);
+            margin: 3px;
+            box-shadow: 0 3px 0 rgba(184, 95, 123, 0.18);
+        }
+
         a:hover {
-            color: #d49b00;
+            color: var(--pooh);
             text-decoration: underline;
+            transform: translateY(-2px);
         }
 
-        /* EFEK HOVER ISI TABEL */
+        tr:nth-child(2) a:hover {
+            background: var(--honey-soft);
+            border-color: var(--honey-bright);
+            text-decoration: none;
+        }
+
+        tr:nth-child(3) td {
+            background-color: var(--cream);
+            vertical-align: top;
+        }
+
         tr:nth-child(3) td:hover {
-            background-color: #fff6c7;
+            background-color: #FFFDF5;
         }
 
-        /* LIST TAUTAN */
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--pooh);
+            font-size: 23px;
+            margin: 8px 0 12px;
+            padding: 9px 13px;
+            background: var(--honey-soft);
+            border-left: 5px solid var(--honey-bright);
+            border-radius: 10px;
+            box-shadow: 0 3px 0 rgba(199, 138, 73, 0.12);
+        }
+
+        h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--forest-dark);
+            font-size: 20px;
+            background: var(--forest-light);
+            padding: 10px 13px;
+            border-radius: 13px;
+            border: 2px dashed var(--forest);
+            margin-top: 5px;
+        }
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--pooh-dark);
+            margin: 12px 5px;
+        }
+
+        tr:nth-child(3) td:first-child > p:not([align="right"]) {
+            background: #FFF9E8;
+            padding: 13px 15px;
+            border-radius: 12px;
+            border: 1px dashed #E8CF8A;
+            box-shadow: 0 3px 8px rgba(135, 85, 45, 0.06);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted var(--caramel);
+            margin: 22px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--forest-dark);
+            font-size: 14px;
+            font-weight: 700;
         }
 
-        /* FOOTER */
+        li a {
+            color: var(--sky-dark);
+        }
+
         tr:last-child td {
-            background-color: #ffe477;
-            color: #604b15;
+            background: linear-gradient(135deg, #FFE477, #FFF0A3);
+            color: var(--pooh-dark);
+            border-top: 4px dashed var(--caramel);
+            padding: 15px;
         }
 
-        /* RESPONSIVE UNTUK HP */
+        tr:last-child p {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--pooh);
+        }
+
+        tr:last-child p[align="right"] {
+            font-family: 'Nunito', sans-serif;
+            font-size: 11px;
+            margin-bottom: 0;
+        }
+
+        .sticker {
+            position: fixed;
+            font-size: 28px;
+            z-index: 5;
+            pointer-events: none;
+            animation: honeyFloat 4s ease-in-out infinite;
+        }
+
+        .sticker-one {
+            top: 8%;
+            left: 3%;
+        }
+
+        .sticker-two {
+            top: 35%;
+            right: 3%;
+            animation-delay: 1s;
+        }
+
+        .sticker-three {
+            bottom: 12%;
+            left: 4%;
+            animation-delay: 2s;
+        }
+
+        .sticker-four {
+            top: 65%;
+            right: 4%;
+            animation-delay: 0.5s;
+        }
+
+        .sticker-five {
+            bottom: 5%;
+            right: 12%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes honeyFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        @keyframes flowerWiggle {
+            0%, 100% {
+                transform: rotate(-8deg);
+            }
+            50% {
+                transform: rotate(8deg);
+            }
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5) rotate(90deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            animation: sparkle 0.8s ease-out forwards;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px 5px;
@@ -108,11 +352,34 @@
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             h2 {
                 font-size: 18px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            tr:first-child td::before {
+                left: 8px;
+                font-size: 22px;
+            }
+
+            tr:first-child td::after {
+                right: 8px;
+                font-size: 22px;
+            }
+
+            tr:nth-child(2) a {
+                padding: 6px 9px;
+                font-size: 12px;
+            }
+
+            .sticker {
+                font-size: 20px;
             }
         }
     </style>
@@ -120,66 +387,92 @@
 
 <body>
 
-<table border="1" width="900" align="center">
+    <div class="sticker sticker-one">🍯</div>
+    <div class="sticker sticker-two">🌼</div>
+    <div class="sticker sticker-three">🐝</div>
+    <div class="sticker sticker-four">🎀</div>
+    <div class="sticker sticker-five">⭐</div>
 
-    <!-- HEADER -->
-    <tr>
-        <td colspan="2" align="center">
-            <font color="black">
-                <h1>Website Jasmine</h1>
-                <i>Nama Saya Jasmine</i>
-            </font>
-        </td>
-    </tr>
+    <table border="1" width="900" align="center">
 
-    <!-- MENU 4 HYPERLINK -->
-    <tr>
-        <td colspan="2" align="center">
-            <a href="index.html">Beranda</a> |
-            <a href="Profil.html">Profil</a> |
-            <a href="kegiatan.html">Kegiatan</a> |
-            <a href="kontak.html">Kontak</a>
-        </td>
-    </tr>
-
-    <!-- ISI -->
-    <tr>
-        <td>
-            <h2>Adu Kisaran Gaji Marselino Ferdinan di Oxford United dengan Persija, bak Bumi dan Langit?</h2>
-
-            <p>JAKARTA - Adu kisaran gaji Marselino Ferdinan di Oxford United dengan Persija apakah bak bumi dan langit? Besaran gaji Marselino Ferdinan menjadi pembicaraan publik.&nbsp;1. Gaji Marselino Ferdinan di PersijaPersijak Jakarta mendatangkan Marselino Ferdinan secara gratis jelang penutupan bursa transfer Super League 2026-2027. Marselino Ferdinan didatangkan secara gratis usai kontraknya bersama klub kasta ketiga Liga Inggris, Oxford United, berakhir pada 30 Juni 2026.&nbsp;Marselino Ferdinan menandatangani kontrak selama 2 musim bersama Persija Jakarta. Klub berjuluk Macan Kemayoran tersebut tidak mengungkap berapa besaran gaji Marselino Ferdinan.&nbsp;2. Gaji Marselino Ferdinan di Oxford Jumlah tersebut naik signifikan dibandingkan gajinya saat masih di Oxford United. Berdasarkan data Capology, Marselino Ferdinan diperkirakan mendapatkan gaji 3 ribu poundsterling per pekan sebelum pajak pada musim 2025-2026.&nbsp;Jika ditotal, gaji Marselino Ferdinan di Oxford United sebesar 156 ribu poundsterling. Jika dikonversi ke rupiah, nilai tersebut sekitar Rp3,4 miliar.&nbsp;</p>
-
-            <br>
-        </td>
-
-        <!-- TAUTAN LINK -->
-        <td valign="top">
-            <h3>Tautan Eksternal</h3>
-            <ol>
-                <li><a href="https://www.mawan.net">Website Mawan</a></li>
-                <li><a href="https://github.com">Github</a></li>
-                <li><a href="https://wikipedia.org">Wikipedia</a></li>
-                <li><a href="https://www.w3schools.com">W3Schools</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <!-- FOOTER -->
-    <tr>
-        <td colspan="2" align="center">
-            <font color="black">
-                <p>Website Jasmine</p>
-            </font>
-
-            <p align="right">
-                <font color="#4CAF50" size="2">
-                    &copy; 2026 Jasmine
+        <!-- HEADER -->
+        <tr>
+            <td colspan="2" align="center">
+                <font color="black">
+                    <h1>Website Jasmine</h1>
+                    <i>Nama Saya Jasmine</i>
                 </font>
-            </p>
-        </td>
-    </tr>
+            </td>
+        </tr>
 
-</table>
+        <!-- MENU NAVIGASI -->
+        <tr>
+            <td colspan="2" align="center">
+                <a href="index.html">Beranda</a> |
+                <a href="Profil.html">Profil</a> |
+                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="kontak.html">Kontak</a>
+            </td>
+        </tr>
+
+        <!-- ISI ARTIKEL -->
+        <tr>
+            <td>
+                <h2>Adu Kisaran Gaji Marselino Ferdinan di Oxford United dengan Persija, bak Bumi dan Langit?</h2>
+
+                <p>
+                    JAKARTA - Adu kisaran gaji Marselino Ferdinan di Oxford United dengan Persija apakah bak bumi dan langit? Besaran gaji Marselino Ferdinan menjadi pembicaraan publik.&nbsp;1. Gaji Marselino Ferdinan di PersijaPersijak Jakarta mendatangkan Marselino Ferdinan secara gratis jelang penutupan bursa transfer Super League 2026-2027. Marselino Ferdinan didatangkan secara gratis usai kontraknya bersama klub kasta ketiga Liga Inggris, Oxford United, berakhir pada 30 Juni 2026.&nbsp;Marselino Ferdinan menandatangani kontrak selama 2 musim bersama Persija Jakarta. Klub berjuluk Macan Kemayoran tersebut tidak mengungkap berapa besaran gaji Marselino Ferdinan.&nbsp;2. Gaji Marselino Ferdinan di Oxford Jumlah tersebut naik signifikan dibandingkan gajinya saat masih di Oxford United. Berdasarkan data Capology, Marselino Ferdinan diperkirakan mendapatkan gaji 3 ribu poundsterling per pekan sebelum pajak pada musim 2025-2026.&nbsp;Jika ditotal, gaji Marselino Ferdinan di Oxford United sebesar 156 ribu poundsterling. Jika dikonversi ke rupiah, nilai tersebut sekitar Rp3,4 miliar.&nbsp;
+                </p>
+
+                <br>
+            </td>
+
+            <!-- TAUTAN EKSTERNAL -->
+            <td valign="top">
+                <h3>Tautan Eksternal</h3>
+                <ol>
+                    <li><a href="https://www.mawan.net">Website Mawan</a></li>
+                    <li><a href="https://github.com">Github</a></li>
+                    <li><a href="https://wikipedia.org">Wikipedia</a></li>
+                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2" align="center">
+                <font color="black">
+                    <p>Website Jasmine</p>
+                </font>
+
+                <p align="right">
+                    <font color="#4CAF50" size="2">
+                        &copy; 2026 Jasmine
+                    </font>
+                </p>
+            </td>
+        </tr>
+
+    </table>
+
+    <script>
+        document.addEventListener("click", function(event) {
+            const sparkle = document.createElement("span");
+            const emojis = ["✨", "💛", "🌼", "🍯", "⭐", "🎀"];
+
+            sparkle.className = "sparkle";
+            sparkle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            sparkle.style.left = event.clientX + "px";
+            sparkle.style.top = event.clientY + "px";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        });
+    </script>
 
 </body>
 </html>

@@ -1,51 +1,64 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak Website</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --honey: #FFD447;
-            --honey-bright: #FFC629;
-            --honey-soft: #FFF0A3;
-            --honey-pale: #FFF9D8;
-            --pooh: #87552D;
-            --pooh-dark: #654022;
-            --caramel: #C78A49;
-            --cream: #FFFCF1;
-            --piglet: #F8C4D3;
-            --piglet-light: #FFE4EB;
-            --piglet-dark: #B85F7B;
-            --forest: #C6E2A5;
-            --forest-light: #E7F3D4;
-            --forest-dark: #587743;
-            --sky: #C9E9F5;
-            --sky-dark: #558EA8;
-            --lavender: #DED1F5;
-            --orange: #FFB36B;
-            --white: #FFFFFF;
+            --honey:#FFD447;
+            --honey-bright:#FFC629;
+            --honey-soft:#FFF0A3;
+            --honey-pale:#FFF9D8;
+            --pooh:#87552D;
+            --pooh-dark:#654022;
+            --caramel:#C78A49;
+            --cream:#FFFCF1;
+            --piglet:#F8C4D3;
+            --piglet-light:#FFE4EB;
+            --piglet-dark:#B85F7B;
+            --forest:#C6E2A5;
+            --forest-light:#E7F3D4;
+            --forest-dark:#587743;
+            --sky:#C9E9F5;
+            --sky-dark:#558EA8;
+            --lavender:#DED1F5;
+            --orange:#FFB36B;
+            --white:#FFFFFF;
         }
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            isolation: isolate;
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 16px;
+            overflow-x: hidden;
             background-color: var(--honey-pale);
             background-image:
                 radial-gradient(circle, rgba(255, 212, 71, 0.45) 2px, transparent 2px),
                 radial-gradient(circle, rgba(248, 196, 211, 0.4) 2px, transparent 2px),
-                radial-gradient(circle, rgba(198, 226, 165, 0.4) 2px, transparent 2px);
-            background-size: 45px 45px, 60px 60px, 75px 75px;
-            background-position: 0 0, 20px 25px, 35px 10px;
+                radial-gradient(circle, rgba(198, 226, 165, 0.4) 2px, transparent 2px),
+                linear-gradient(135deg, #FFF8CF, #FFF0C2, #FCE4E9, #E7F3D4);
+            background-size: 35px 35px, 53px 53px, 43px 43px, 100% 100%;
+            background-position: 0 0, 15px 20px, 25px 10px, center;
             background-attachment: fixed;
             font-family: 'Nunito', sans-serif;
             color: var(--pooh-dark);
-            margin: 0;
-            padding: 30px 10px;
+            line-height: 1.8;
             position: relative;
         }
 
@@ -53,51 +66,62 @@
         body::after {
             content: "";
             position: fixed;
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
+            border: 2px dotted rgba(255,255,255,0.8);
             border-radius: 50%;
             z-index: -1;
-            opacity: 0.35;
+            animation: floatBubble 8s ease-in-out infinite;
         }
 
         body::before {
-            background: var(--piglet);
             top: -65px;
-            left: -65px;
+            left: -75px;
+            background: var(--honey);
+            box-shadow:
+                20px 20px 0 rgba(248,196,211,0.35),
+                40px 40px 0 rgba(198,226,165,0.25);
         }
 
         body::after {
-            background: var(--forest);
-            bottom: -65px;
-            right: -65px;
+            right: -90px;
+            bottom: -70px;
+            background: var(--piglet);
+            box-shadow: -20px -20px 0 rgba(201,233,245,0.4);
+            animation-delay: -4s;
         }
 
         table {
             width: 900px;
             max-width: 100%;
             margin: auto;
-            border: 5px solid var(--honey);
+            border: 5px solid #E9B93F;
             border-spacing: 0;
             border-collapse: separate;
-            border-radius: 24px;
+            border-radius: 32px;
             overflow: hidden;
             background-color: var(--cream);
             box-shadow:
-                0 10px 25px rgba(76, 139, 132, 0.20),
-                0 0 0 5px rgba(255, 255, 255, 0.7);
+                0 10px 25px rgba(76,139,132,0.20),
+                0 0 0 5px rgba(255,255,255,0.7),
+                0 18px 35px rgba(135,85,45,0.12);
             position: relative;
+            animation: appear 1s ease both;
         }
 
         td {
-            padding: 18px;
-            border: 1px solid rgba(199, 138, 73, 0.2);
+            padding: 23px;
+            border: 1px solid #F1DFA0;
             transition: background-color 0.3s ease;
         }
 
         tr:first-child td {
-            background: linear-gradient(135deg, #FFE477, #FFD447, #FFC629);
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.5) 0 3px, transparent 4px),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.35) 0 4px, transparent 5px),
+                linear-gradient(135deg, #FFE477, #FFD447, #FFC629);
             color: var(--pooh-dark);
-            padding: 28px 20px;
+            padding: 38px 24px 35px;
             text-align: center;
             position: relative;
             border-bottom: 4px dashed var(--caramel);
@@ -108,37 +132,56 @@
             position: absolute;
             left: 25px;
             top: 20px;
+            width: 145px;
+            height: 145px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(255,255,255,0.7);
+            border-radius: 50%;
             font-size: 30px;
-            animation: flowerWiggle 3s ease-in-out infinite;
+            opacity: 0.8;
         }
 
         tr:first-child td::after {
-            content: "🍯";
+            content: "🐝 🍯";
             position: absolute;
             right: 25px;
-            top: 20px;
-            font-size: 30px;
-            animation: honeyFloat 3s ease-in-out infinite;
+            bottom: 15px;
+            font-size: 25px;
+            letter-spacing: 5px;
         }
 
         h1 {
             font-family: 'Fredoka', sans-serif;
             color: var(--pooh-dark);
-            font-size: 34px;
+            font-size: clamp(30px, 5vw, 46px);
             margin: 0 0 5px;
-            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.65);
+            text-shadow:
+                2px 3px 0 rgba(255,255,255,0.75),
+                0 5px 0 rgba(199,138,73,0.15);
             letter-spacing: 1px;
+            animation: titleBounce 3s ease-in-out infinite;
         }
 
         tr:first-child i {
+            display: inline-block;
             font-family: 'Nunito', sans-serif;
             color: var(--pooh);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 14px;
+            font-style: normal;
+            background: rgba(255,255,255,0.55);
+            padding: 5px 16px;
+            border: 1px dashed var(--caramel);
+            border-radius: 20px;
         }
 
         tr:nth-child(2) td {
-            background: linear-gradient(90deg, var(--piglet-light), var(--honey-pale), var(--forest-light));
+            background:
+                radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 2px),
+                linear-gradient(90deg, var(--piglet-light), var(--honey-pale), var(--forest-light));
+            background-size: 18px 18px, 100% 100%;
             text-align: center;
             padding: 16px 10px;
             border-bottom: 3px dotted var(--caramel);
@@ -158,13 +201,14 @@
             border-radius: 20px;
             border: 2px solid var(--piglet);
             margin: 3px;
-            box-shadow: 0 3px 0 rgba(184, 95, 123, 0.18);
+            box-shadow: 0 3px 0 rgba(184,95,123,0.18);
+            font-family: 'Fredoka', sans-serif;
         }
 
         a:hover {
             color: var(--pooh);
             text-decoration: underline;
-            transform: translateY(-2px);
+            transform: translateY(-5px) rotate(-3deg) scale(1.04);
         }
 
         tr:nth-child(2) a:hover {
@@ -173,9 +217,15 @@
             text-decoration: none;
         }
 
+        tr:nth-child(2) a:active {
+            transform: translateY(2px) scale(.96);
+        }
+
         tr:nth-child(3) td {
             background-color: var(--cream);
             vertical-align: top;
+            background-image: radial-gradient(rgba(199,138,73,0.08) 1px, transparent 1px);
+            background-size: 18px 18px;
         }
 
         tr:nth-child(3) td:hover {
@@ -191,18 +241,22 @@
             background: var(--honey-soft);
             border-left: 5px solid var(--honey-bright);
             border-radius: 10px;
-            box-shadow: 0 3px 0 rgba(199, 138, 73, 0.12);
+            box-shadow: 0 3px 0 rgba(199,138,73,0.12);
         }
 
         h3 {
             font-family: 'Fredoka', sans-serif;
             color: var(--forest-dark);
             font-size: 20px;
-            background: var(--forest-light);
+            background: linear-gradient(135deg, var(--forest-light), #F5F8D9);
             padding: 10px 13px;
             border-radius: 13px;
             border: 2px dashed var(--forest);
             margin-top: 5px;
+        }
+
+        h3::before {
+            content: "🌳 ";
         }
 
         p {
@@ -214,11 +268,13 @@
         }
 
         tr:nth-child(3) td:first-child > p:not([align="right"]) {
-            background: #FFF9E8;
+            background:
+                radial-gradient(circle at top right, rgba(255,212,71,0.12), transparent 45%),
+                #FFF9E8;
             padding: 13px 15px;
             border-radius: 12px;
             border: 1px dashed #E8CF8A;
-            box-shadow: 0 3px 8px rgba(135, 85, 45, 0.06);
+            box-shadow: 0 3px 8px rgba(135,85,45,0.06);
         }
 
         hr {
@@ -236,10 +292,28 @@
             color: var(--forest-dark);
             font-size: 14px;
             font-weight: 700;
+            padding: 5px 7px;
+            border-radius: 9px;
+            transition: 0.3s ease;
+        }
+
+        li:nth-child(odd) {
+            background: rgba(231,243,212,0.65);
+        }
+
+        li:nth-child(even) {
+            background: rgba(255,240,163,0.45);
+        }
+
+        li:hover {
+            transform: translateX(5px) rotate(-1deg);
+            background: var(--piglet-light);
         }
 
         li a {
             color: var(--sky-dark);
+            text-decoration: underline wavy rgba(85,142,168,0.4);
+            text-underline-offset: 3px;
         }
 
         tr:last-child td {
@@ -247,6 +321,23 @@
             color: var(--pooh-dark);
             border-top: 4px dashed var(--caramel);
             padding: 15px;
+            position: relative;
+        }
+
+        tr:last-child td::before {
+            content: "🍯";
+            position: absolute;
+            left: 18px;
+            top: 12px;
+            font-size: 20px;
+        }
+
+        tr:last-child td::after {
+            content: "🌼";
+            position: absolute;
+            right: 18px;
+            bottom: 12px;
+            font-size: 20px;
         }
 
         tr:last-child p {
@@ -260,126 +351,181 @@
             font-family: 'Nunito', sans-serif;
             font-size: 11px;
             margin-bottom: 0;
+            color: var(--forest-dark);
         }
 
         .sticker {
             position: fixed;
-            font-size: 28px;
-            z-index: 5;
+            z-index: -1;
             pointer-events: none;
-            animation: honeyFloat 4s ease-in-out infinite;
+            user-select: none;
+            animation: floatSticker 5s ease-in-out infinite;
         }
 
         .sticker-one {
-            top: 8%;
-            left: 3%;
+            top: 7%;
+            right: 5%;
+            font-size: 43px;
         }
 
         .sticker-two {
-            top: 35%;
-            right: 3%;
-            animation-delay: 1s;
+            top: 36%;
+            left: 2%;
+            font-size: 32px;
+            animation-delay: -2s;
         }
 
         .sticker-three {
-            bottom: 12%;
-            left: 4%;
-            animation-delay: 2s;
+            right: 3%;
+            bottom: 22%;
+            font-size: 38px;
+            animation-delay: -1s;
         }
 
         .sticker-four {
-            top: 65%;
-            right: 4%;
-            animation-delay: 0.5s;
+            left: 5%;
+            bottom: 8%;
+            font-size: 36px;
+            animation-delay: -3s;
         }
 
         .sticker-five {
-            bottom: 5%;
-            right: 12%;
-            animation-delay: 1.5s;
+            top: 65%;
+            left: 5%;
+            font-size: 24px;
+            animation-delay: -1.5s;
         }
 
-        @keyframes honeyFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(-5deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(5deg);
-            }
-        }
-
-        @keyframes flowerWiggle {
-            0%, 100% {
-                transform: rotate(-8deg);
-            }
-            50% {
-                transform: rotate(8deg);
-            }
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: scale(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.5) rotate(90deg);
-                opacity: 0;
-            }
-        }
-
-        .sparkle {
+        .click-sparkle {
             position: fixed;
             pointer-events: none;
-            z-index: 999;
-            animation: sparkle 0.8s ease-out forwards;
+            z-index: 9999;
+            animation: sparklePop .75s ease-out forwards;
+        }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(8deg); }
+        }
+
+        @keyframes floatSticker {
+            0%, 100% { transform: translateY(0) rotate(-8deg); }
+            50% { transform: translateY(-15px) rotate(8deg); }
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes appear {
+            from { opacity:0; transform:translateY(20px) scale(.98); }
+            to { opacity:1; transform:translateY(0) scale(1); }
+        }
+
+        @keyframes sparklePop {
+            0% { opacity:1; transform:translateY(0) scale(.5) rotate(0); }
+            100% { opacity:0; transform:translateY(-40px) scale(1.5) rotate(35deg); }
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 10px 5px;
+                padding: 20px 9px;
             }
 
             table {
-                width: 100%;
-                font-size: 13px;
-                border-radius: 16px;
+                border-width: 3px;
+                border-radius: 24px;
             }
 
             td {
-                padding: 10px;
-                overflow-wrap: anywhere;
+                padding: 14px;
+            }
+
+            tr:first-child td {
+                padding: 32px 12px;
+            }
+
+            tr:first-child td::before {
+                width: 95px;
+                height: 95px;
+                font-size: 40px;
+            }
+
+            tr:first-child td::after {
+                font-size: 12px;
+                letter-spacing: 1px;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 30px;
+            }
+
+            tr:nth-child(2) td {
+                padding: 12px 5px;
+            }
+
+            tr:nth-child(2) a {
+                margin: 4px 2px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            tr:nth-child(3) td {
+                display: block;
+                width: 100% !important;
+                padding: 16px;
             }
 
             h2 {
-                font-size: 18px;
+                font-size: 19px;
+                padding: 12px;
+            }
+
+            h2::after {
+                right: 5px;
+                font-size: 19px;
+            }
+
+            p {
+                font-size: 13px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:nth-child(3) td:first-child > p:not([align="right"]) {
+                padding: 15px;
+                font-size: 13px;
             }
 
             h3 {
                 font-size: 17px;
             }
 
-            tr:first-child td::before {
-                left: 8px;
-                font-size: 22px;
-            }
-
-            tr:first-child td::after {
-                right: 8px;
-                font-size: 22px;
-            }
-
-            tr:nth-child(2) a {
-                padding: 6px 9px;
-                font-size: 12px;
+            ol {
+                padding-left: 23px;
             }
 
             .sticker {
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .sticker-three,
+            .sticker-five {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
             }
         }
     </style>
@@ -398,19 +544,17 @@
         <!-- HEADER -->
         <tr>
             <td colspan="2" align="center">
-                <font color="black">
-                    <h1>Website Jasmine</h1>
-                    <i>Nama saya Jasmine</i>
-                </font>
+                <h1>Website Jasmine</h1>
+                <i>Nama saya Jasmine</i>
             </td>
         </tr>
 
         <!-- MENU NAVIGASI -->
         <tr>
             <td colspan="2" align="center">
-                <a href="index.html">Beranda</a> |
-                <a href="Profil.html">Profil</a> |
-                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="index.html">Beranda</a>
+                <a href="Profil.html">Profil</a>
+                <a href="kegiatan.html">Kegiatan</a>
                 <a href="kontak.html">Kontak</a>
             </td>
         </tr>
@@ -440,14 +584,10 @@
         <!-- FOOTER -->
         <tr>
             <td colspan="2" align="center">
-                <font color="black">
-                    <p>Website Ekonomi Indonesia</p>
-                </font>
+                <p>Website Ekonomi Indonesia</p>
 
                 <p align="right">
-                    <font color="#4CAF50" size="2">
-                        &copy; 2026 Jasmine
-                    </font>
+                    &copy; 2026 Jasmine
                 </p>
             </td>
         </tr>
@@ -456,10 +596,12 @@
 
     <script>
         document.addEventListener("click", function(event) {
+            if (!event.target.closest("a")) return;
+
             const sparkle = document.createElement("span");
             const emojis = ["✨", "💛", "🌼", "🍯", "⭐", "🎀"];
 
-            sparkle.className = "sparkle";
+            sparkle.className = "click-sparkle";
             sparkle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
             sparkle.style.left = event.clientX + "px";
             sparkle.style.top = event.clientY + "px";
@@ -468,7 +610,7 @@
 
             setTimeout(() => {
                 sparkle.remove();
-            }, 800);
+            }, 750);
         });
     </script>
 

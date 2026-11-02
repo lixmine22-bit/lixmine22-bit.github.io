@@ -1,125 +1,847 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Wali</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* BACKGROUND KUNING PASTEL */
-        body {
-            background-color: #fff4a8;
-            font-family: Arial, sans-serif;
-            color: #66552b;
-            margin: 0;
-            padding: 30px 10px;
+        /* ==========================================
+           WINNIE THE POOH — HONEY BEAR SCRAPBOOK
+           ========================================== */
+
+        :root {
+            --honey: #FFD447;
+            --honey-bright: #FFC629;
+            --honey-soft: #FFF0A3;
+            --honey-pale: #FFF9D8;
+
+            --pooh: #87552D;
+            --pooh-dark: #654022;
+            --caramel: #C78A49;
+            --cream: #FFFCF1;
+
+            --piglet: #F8C4D3;
+            --piglet-light: #FFE4EB;
+            --piglet-dark: #B85F7B;
+
+            --forest: #C6E2A5;
+            --forest-light: #E7F3D4;
+            --forest-dark: #587743;
+
+            --sky: #C9E9F5;
+            --sky-dark: #558EA8;
+
+            --lavender: #DED1F5;
+            --orange: #FFB36B;
+            --white: #FFFFFF;
         }
 
-        /* TABEL UTAMA */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            position: relative;
+            isolation: isolate;
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 16px;
+            overflow-x: hidden;
+
+            background-color: var(--honey-pale);
+            background-image:
+                radial-gradient(circle, rgba(255, 212, 71, .65) 2px, transparent 3px),
+                radial-gradient(circle, rgba(248, 196, 211, .75) 3px, transparent 4px),
+                radial-gradient(circle, rgba(198, 226, 165, .75) 2px, transparent 3px),
+                linear-gradient(135deg, #FFF8CF 0%, #FFF0C2 40%, #FCE4E9 72%, #E7F3D4 100%);
+
+            background-size:
+                35px 35px,
+                53px 53px,
+                43px 43px,
+                100% 100%;
+
+            background-position:
+                0 0,
+                15px 20px,
+                25px 10px,
+                center;
+
+            background-attachment: fixed;
+            color: var(--pooh-dark);
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.8;
+        }
+
+        /* CORNER DECORATIONS */
+
+        body::before,
+        body::after {
+            position: fixed;
+            z-index: -1;
+            width: 200px;
+            height: 200px;
+            content: "";
+            border: 15px dotted rgba(255, 255, 255, .7);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatBubble 8s ease-in-out infinite;
+        }
+
+        body::before {
+            top: -65px;
+            left: -75px;
+            background: rgba(255, 212, 71, .55);
+            box-shadow:
+                90px 440px 0 -55px rgba(248, 196, 211, .8),
+                90vw 200px 0 -65px rgba(198, 226, 165, .8);
+        }
+
+        body::after {
+            right: -90px;
+            bottom: -70px;
+            background: rgba(248, 196, 211, .65);
+            box-shadow:
+                -85vw -400px 0 -65px rgba(201, 233, 245, .85);
+            animation-delay: -4s;
+        }
+
+        /* FLOATING STICKERS */
+
+        .sticker {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            user-select: none;
+            animation: floatSticker 5s ease-in-out infinite;
+        }
+
+        .sticker-one {
+            top: 7%;
+            right: 5%;
+            font-size: 43px;
+        }
+
+        .sticker-two {
+            top: 36%;
+            left: 2%;
+            font-size: 32px;
+            animation-delay: -2s;
+        }
+
+        .sticker-three {
+            right: 3%;
+            bottom: 22%;
+            font-size: 38px;
+            animation-delay: -1s;
+        }
+
+        .sticker-four {
+            left: 5%;
+            bottom: 8%;
+            font-size: 36px;
+            animation-delay: -3s;
+        }
+
+        .sticker-five {
+            top: 65%;
+            left: 5%;
+            font-size: 24px;
+            animation-delay: -1.5s;
+        }
+
+        /* ==========================================
+           MAIN TABLE
+           ========================================== */
+
         table {
+            position: relative;
             width: 900px;
             max-width: 100%;
             margin: auto;
-            border: 3px solid #e8cf57;
+            border: 5px solid #E9B93F;
             border-spacing: 0;
             border-collapse: separate;
-            border-radius: 22px;
+            border-radius: 32px;
             overflow: hidden;
-            background-color: #fffdf0;
-            box-shadow: 0 10px 25px rgba(180, 145, 35, 0.22);
+
+            background: var(--cream);
+
+            box-shadow:
+                0 0 0 7px rgba(255, 255, 255, .78),
+                0 0 0 12px rgba(248, 196, 211, .7),
+                0 18px 0 rgba(135, 85, 45, .10),
+                0 25px 55px rgba(135, 85, 45, .18);
+
+            animation: appear 1s ease both;
         }
 
-        /* SEL TABEL */
         td {
-            padding: 18px;
-            border: 1px solid #f3e5a0;
-            transition: background-color 0.3s ease;
+            padding: 23px;
+            border: 1px solid #F1DFA0;
+            transition: background-color .3s ease;
         }
 
-        /* HEADER */
+        /* ==========================================
+           HEADER — HONEY BEAR PARTY
+           ========================================== */
+
         tr:first-child td {
-            background-color: #ffdf63;
-            color: #604b15;
-            padding: 24px;
+            position: relative;
+            padding: 38px 24px 35px;
+            overflow: hidden;
+            border-color: #F2D17A;
+
+            background-color: var(--honey);
+            background-image:
+                radial-gradient(circle at 15% 25%, #FFFFFF 0 4px, transparent 5px),
+                radial-gradient(circle at 82% 20%, #FFFFFF 0 6px, transparent 7px),
+                radial-gradient(circle at 70% 80%, #FFEAA0 0 12px, transparent 13px),
+                radial-gradient(circle at 25% 85%, #FFF4C9 0 9px, transparent 10px),
+                linear-gradient(135deg, #FFE985, #FFD447 48%, #FFC629);
+
+            color: var(--pooh-dark);
+            text-align: center;
+        }
+
+        tr:first-child td::before {
+            position: absolute;
+            top: -30px;
+            left: -25px;
+            width: 145px;
+            height: 145px;
+            content: "🌼";
+            display: grid;
+            place-items: center;
+            border: 5px dashed rgba(255, 255, 255, .8);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .20);
+            font-size: 60px;
+            opacity: .75;
+            transform: rotate(-15deg);
+        }
+
+        tr:first-child td::after {
+            position: absolute;
+            right: 10px;
+            bottom: 5px;
+            content: "🍯 ✦ 🐝 ✦ 🍯";
+            color: #87552D;
+            font-size: 17px;
+            letter-spacing: 3px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Fredoka', sans-serif;
+            line-height: 1.35;
         }
 
         h1 {
-            color: #70551a;
+            position: relative;
+            z-index: 1;
+            margin: 0 0 12px;
+            color: #70451F;
+            font-size: clamp(30px, 5vw, 43px);
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-shadow:
+                2px 3px 0 rgba(255, 255, 255, .85),
+                4px 5px 0 rgba(199, 138, 73, .18);
+            animation: titleBounce 3s ease-in-out infinite;
         }
 
+        tr:first-child i {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 7px 20px;
+            border: 3px dashed #C78A49;
+            border-radius: 30px;
+            background: #FFFCF1;
+            box-shadow: 0 4px 0 rgba(135, 85, 45, .13);
+            color: #87552D;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        /* ==========================================
+           NAVIGATION — COLORFUL CANDY BUTTONS
+           ========================================== */
+
+        tr:nth-child(2) td {
+            padding: 19px 10px;
+            border-color: #F4DFA1;
+            background:
+                radial-gradient(circle at 10% 30%, #FFFFFF 0 4px, transparent 5px),
+                radial-gradient(circle at 90% 70%, #FFFFFF 0 5px, transparent 6px),
+                #FFF0B5;
+            text-align: center;
+        }
+
+        tr:nth-child(2) a {
+            display: inline-block;
+            margin: 6px 4px;
+            padding: 9px 17px;
+            border: 2px solid #E8C65B;
+            border-radius: 25px;
+            background: #FFFCF1;
+            box-shadow: 0 5px 0 #DCC47C;
+            color: #79512C;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s ease;
+        }
+
+        tr:nth-child(2) a:nth-of-type(1) {
+            background: #FFF0A3;
+        }
+
+        tr:nth-child(2) a:nth-of-type(2) {
+            border-color: #E9A7BA;
+            background: #FFE4EB;
+        }
+
+        tr:nth-child(2) a:nth-of-type(3) {
+            border-color: #A9C78B;
+            background: #E7F3D4;
+        }
+
+        tr:nth-child(2) a:nth-of-type(4) {
+            border-color: #A8D6E6;
+            background: #DFF3FB;
+        }
+
+        tr:nth-child(2) a:hover {
+            transform: translateY(-5px) rotate(-3deg) scale(1.04);
+            background: #FFFFFF;
+            box-shadow: 0 8px 0 #DCC47C;
+        }
+
+        tr:nth-child(2) a:active {
+            transform: translateY(2px) scale(.96);
+            box-shadow: 0 1px 0 #DCC47C;
+        }
+
+        /* ==========================================
+           ARTICLE COLUMN — COLORFUL SCRAPBOOK
+           ========================================== */
+
+        tr:nth-child(3) td {
+            position: relative;
+            background-color: #FFFCF1;
+            vertical-align: top;
+        }
+
+        tr:nth-child(3) td:first-child {
+            width: 650px;
+            background-color: #FFFCF1;
+            background-image:
+                radial-gradient(circle, rgba(255, 212, 71, .22) 1.5px, transparent 2px),
+                radial-gradient(circle, rgba(248, 196, 211, .25) 2px, transparent 2.5px);
+            background-size: 24px 24px, 42px 42px;
+            background-position: 0 0, 12px 18px;
+        }
+
+        /* ARTICLE TITLES */
+
         h2 {
-            color: #70551a;
+            position: relative;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            padding: 18px 17px 18px 23px;
+
+            border: 2px solid #F1C94D;
+            border-left: 8px solid #FFB84D;
+            border-radius: 9px 22px 22px 9px;
+
+            background:
+                radial-gradient(circle at 90% 20%, #FFFFFF 0 4px, transparent 5px),
+                radial-gradient(circle at 80% 85%, #FFF4C9 0 7px, transparent 8px),
+                linear-gradient(135deg, #FFF0A3, #FFE0A3);
+
+            box-shadow:
+                4px 5px 0 rgba(199, 138, 73, .12),
+                0 3px 10px rgba(255, 212, 71, .10);
+
+            color: #79512C;
+            font-size: 23px;
+            font-weight: 600;
+            transition: all .3s ease;
+        }
+
+        h2::after {
+            position: absolute;
+            top: -13px;
+            right: 12px;
+            content: "✿";
+            color: #E89AAE;
+            font-size: 25px;
+            text-shadow: 1px 2px 0 #FFFFFF;
+            transform: rotate(15deg);
+        }
+
+        h2:hover {
+            transform: translateX(4px);
+            border-color: #E7A9BA;
+            border-left-color: #E7A9BA;
+            background: linear-gradient(135deg, #FFE4EB, #FFF0B5);
+        }
+
+        /* DATE LABELS */
+
+        p[align="right"] {
+            position: relative;
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 0 17px auto;
+            padding: 5px 13px;
+
+            border: 2px dashed #D89AA9;
+            border-radius: 20px;
+            background: #FFE4EB;
+            box-shadow: 0 3px 0 rgba(184, 95, 123, .10);
+
+            color: #A0526B;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        p[align="right"]::before {
+            content: "🌷 ";
+        }
+
+        /* ARTICLE TEXT CARDS */
+
+        tr:nth-child(3) td:first-child > p:not([align="right"]) {
+            position: relative;
+            margin: 14px 0 20px;
+            padding: 21px 19px;
+
+            border: 2px solid #E9D6AC;
+            border-radius: 22px 22px 22px 7px;
+
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(circle at 95% 10%, rgba(255, 212, 71, .26) 0 18px, transparent 19px),
+                radial-gradient(circle at 4% 95%, rgba(248, 196, 211, .28) 0 23px, transparent 24px);
+
+            box-shadow:
+                0 5px 0 rgba(135, 85, 45, .07),
+                0 8px 20px rgba(135, 85, 45, .045);
+
+            color: #735D46;
+            font-size: 14px;
+            line-height: 2.05;
+            transition: border-color .3s ease, box-shadow .3s ease;
+        }
+
+        tr:nth-child(3) td:first-child > p:not([align="right"]):hover {
+            border-color: #E8B4C2;
+            box-shadow: 0 6px 0 rgba(248, 196, 211, .32);
+        }
+
+        /* READ MORE BUTTONS */
+
+        tr:nth-child(3) td:first-child > a {
+            position: relative;
+            display: inline-block;
+            margin: 0 0 16px;
+            padding: 10px 22px;
+
+            border: 2px solid #D9AD37;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #FFE66F, #FFC94F);
+            box-shadow: 0 5px 0 #D5AB3C;
+
+            color: #70451F;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .25s ease;
+        }
+
+        tr:nth-child(3) td:first-child > a::after {
+            content: "  ✨";
+        }
+
+        tr:nth-child(3) td:first-child > a:hover {
+            transform: translateY(-4px) rotate(-2deg);
+            border-color: #E8A8B8;
+            background: linear-gradient(135deg, #FFE4EB, #F8C4D3);
+            box-shadow: 0 7px 0 #DFA2B0;
+            color: #754052;
+        }
+
+        tr:nth-child(3) td:first-child > a:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #D5AB3C;
+        }
+
+        /* DECORATIVE DIVIDER */
+
+        hr {
+            height: 14px;
+            margin: 28px 0;
+            border: none;
+            border-radius: 20px;
+
+            background:
+                radial-gradient(circle, #FFFFFF 0 3px, transparent 4px) 0 0 / 19px 14px,
+                linear-gradient(
+                    90deg,
+                    #FFD447 0%,
+                    #FFD447 25%,
+                    #F8C4D3 25%,
+                    #F8C4D3 50%,
+                    #C6E2A5 50%,
+                    #C6E2A5 75%,
+                    #C9E9F5 75%,
+                    #C9E9F5 100%
+                );
+
+            box-shadow: 0 3px 0 rgba(135, 85, 45, .08);
+        }
+
+        /* ==========================================
+           SIDEBAR — HUNDRED ACRE WOOD
+           ========================================== */
+
+        tr:nth-child(3) td:last-child {
+            width: 250px;
+            background-color: #E7F3D4;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.75) 3px, transparent 4px),
+                linear-gradient(180deg, #E7F3D4, #D5E9BE 60%, #E9F2D8);
+            background-size: 31px 31px, 100% 100%;
+            background-position: 4px 5px, center;
         }
 
         h3 {
-            color: #96751c;
-        }
+            margin: 8px 0 18px;
+            padding: 14px 10px;
 
-        /* MENU NAVIGASI */
-        tr:nth-child(2) td {
-            background-color: #fff0a6;
+            border: 3px dashed #88A96C;
+            border-radius: 22px;
+
+            background:
+                radial-gradient(circle at 15% 20%, #FFFFFF 0 4px, transparent 5px),
+                linear-gradient(135deg, #F4F8E8, #C6E2A5);
+
+            box-shadow: 0 5px 0 rgba(88, 119, 67, .12);
+
+            color: #526C3B;
+            font-size: 19px;
             text-align: center;
-            padding: 16px;
         }
 
-        /* HYPERLINK */
-        a {
-            color: #98700b;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+        h3::before {
+            display: block;
+            margin-bottom: 5px;
+            content: "🌳 🍄 🌳";
+            font-size: 20px;
         }
 
-        a:hover {
-            color: #d49b00;
-            text-decoration: underline;
+        ol {
+            margin: 15px 0;
+            padding-left: 26px;
         }
 
-        /* EFEK HOVER ISI TABEL */
-        tr:nth-child(3) td:hover {
-            background-color: #fff6c7;
-        }
-
-        /* LIST TAUTAN */
         li {
-            margin-bottom: 10px;
+            position: relative;
+            margin-bottom: 14px;
+            padding: 12px 10px 12px 12px;
+
+            border: 2px solid #F0DFA7;
+            border-radius: 17px 17px 17px 5px;
+
+            background-color: #FFF9D8;
+            box-shadow: 0 4px 0 rgba(135, 85, 45, .06);
+
+            color: #806044;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+            transition: all .25s ease;
         }
 
-        /* GARIS PEMISAH */
-        hr {
-            border: none;
-            border-top: 1px solid #e8cf57;
-            margin: 22px 0;
+        li:nth-child(1) {
+            border-color: #E7C85E;
+            background-color: #FFF0A3;
         }
 
-        /* FOOTER */
+        li:nth-child(2) {
+            border-color: #E9AFC0;
+            background-color: #FFE4EB;
+        }
+
+        li:nth-child(3) {
+            border-color: #A9C78B;
+            background-color: #EAF4D9;
+        }
+
+        li:nth-child(4) {
+            border-color: #A8D6E6;
+            background-color: #E2F4FB;
+        }
+
+        li::marker {
+            color: #C69734;
+            font-weight: 900;
+        }
+
+        li:hover {
+            transform: translateX(5px) rotate(-1deg);
+            background-color: #FFFFFF;
+            box-shadow: 0 6px 0 rgba(135, 85, 45, .10);
+        }
+
+        li a {
+            display: inline;
+            color: #80582E;
+            font-weight: 900;
+            text-decoration: none;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            transition: color .25s ease;
+        }
+
+        li a:hover {
+            color: #B85F7B;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+
+        /* ==========================================
+           FOOTER — HONEY JAR
+           ========================================== */
+
         tr:last-child td {
-            background-color: #ffe477;
-            color: #604b15;
+            position: relative;
+            padding: 23px;
+            border-color: #F0D17B;
+
+            background:
+                radial-gradient(circle at 15% 30%, rgba(255,255,255,.75) 0 4px, transparent 5px),
+                radial-gradient(circle at 90% 70%, rgba(255,255,255,.6) 0 6px, transparent 7px),
+                linear-gradient(135deg, #FFE99B, #FFD447 55%, #FFC95B);
+
+            color: #70451F;
         }
 
-        /* RESPONSIVE UNTUK HP */
+        tr:last-child td > font > p {
+            margin: 0;
+            color: #70451F;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        tr:last-child td > font > p::before {
+            content: "🍯 ";
+        }
+
+        tr:last-child td > font > p::after {
+            content: " 🌼";
+        }
+
+        tr:last-child td p[align="right"] {
+            margin: 12px 0 0;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        tr:last-child td p[align="right"]::before {
+            content: none;
+        }
+
+        tr:last-child td p[align="right"] font {
+            color: #587743 !important;
+            font-weight: 900;
+        }
+
+        /* ==========================================
+           CLICK SPARKLES
+           ========================================== */
+
+        .click-sparkle {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            user-select: none;
+            font-size: 21px;
+            animation: sparklePop .75s ease-out forwards;
+        }
+
+        /* ==========================================
+           ANIMATIONS
+           ========================================== */
+
+        @keyframes floatBubble {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @keyframes floatSticker {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(8deg);
+            }
+        }
+
+        @keyframes titleBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes sparklePop {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(.5) rotate(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-40px) scale(1.5) rotate(35deg);
+            }
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+
         @media (max-width: 600px) {
             body {
-                padding: 10px 5px;
+                padding: 20px 9px;
             }
 
             table {
                 width: 100%;
-                font-size: 13px;
-                border-radius: 16px;
+                border-width: 3px;
+                border-radius: 24px;
             }
 
             td {
-                padding: 10px;
-                overflow-wrap: anywhere;
+                padding: 14px;
+            }
+
+            tr:first-child td {
+                padding: 32px 12px;
+            }
+
+            tr:first-child td::before {
+                width: 95px;
+                height: 95px;
+                font-size: 40px;
+            }
+
+            tr:first-child td::after {
+                font-size: 12px;
+                letter-spacing: 1px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 30px;
+            }
+
+            tr:nth-child(2) td {
+                padding: 12px 5px;
+            }
+
+            tr:nth-child(2) a {
+                margin: 4px 2px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            tr:nth-child(3) td {
+                display: block;
+                width: 100% !important;
+                padding: 16px;
             }
 
             h2 {
-                font-size: 18px;
+                padding: 15px 12px;
+                font-size: 19px;
+            }
+
+            h2::after {
+                right: 5px;
+                font-size: 19px;
+            }
+
+            p {
+                font-size: 13px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:nth-child(3) td:first-child > p:not([align="right"]) {
+                padding: 15px;
+                font-size: 13px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            ol {
+                padding-left: 23px;
+            }
+
+            .sticker {
+                font-size: 24px;
+            }
+
+            .sticker-three,
+            .sticker-five {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
             }
         }
     </style>
@@ -127,83 +849,114 @@
 
 <body>
 
-<table border="1" width="900" align="center">
+    <!-- FLOATING STICKERS -->
+    <div class="sticker sticker-one" aria-hidden="true">🍯</div>
+    <div class="sticker sticker-two" aria-hidden="true">🌼</div>
+    <div class="sticker sticker-three" aria-hidden="true">🐝</div>
+    <div class="sticker sticker-four" aria-hidden="true">🎀</div>
+    <div class="sticker sticker-five" aria-hidden="true">⭐</div>
 
-    <!-- HEADER -->
-    <tr>
-        <td colspan="2" align="center">
-            <font color="black">
-                <h1>Website Jasmine</h1>
-                <i>Nama Saya Jasmine</i>
-            </font>
-        </td>
-    </tr>
+    <table border="1" width="900" align="center">
 
-    <!-- MENU 4 HYPERLINK -->
-    <tr>
-        <td colspan="2" align="center">
-            <a href="index.html">Beranda</a> |
-            <a href="Profil.html">Profil</a> |
-            <a href="kegiatan.html">Kegiatan</a> |
-            <a href="kontak.html">Kontak</a>
-        </td>
-    </tr>
-
-    <!-- ISI -->
-    <tr>
-        <td width="650">
-            <h2>Adu Kisaran Gaji Marselino Ferdinan di Oxford United dengan Persija, bak Bumi dan Langit?</h2>
-
-            <p align="right">
-                <i>Senin, 7 September 2026</i>
-            </p>
-
-            <p>JAKARTA - Adu kisaran gaji Marselino Ferdinan di Oxford United dengan Persija apakah bak bumi dan langit? Besaran gaji Marselino Ferdinan menjadi pembicaraan publik.&nbsp;1. Gaji Marselino Ferdinan di PersijaPersijak Jakarta mendatangkan Marselino Ferdinan secara gratis jelang penutupan bursa transfer Super League 2026-2027. Marselino Ferdinan didatangkan secara gratis usai kontraknya bersama klub kasta ketiga Liga Inggris, Oxford United, berakhir pada 30 Juni 2026.&nbsp;Marselino Ferdinan menandatangani kontrak selama 2 musim bersama Persija Jakarta. Klub berjuluk Macan Kemayoran tersebut tidak mengungkap berapa besaran gaji Marselino Ferdinan.&nbsp;</p>
-
-            <a href="selengkapnya.html">Selanjutnya</a>
-
-            <hr>
-
-            <h2>Profil dan Pendidikan Marselino Ferdinan yang Resmi Gabung Persija Jakarta</h2>
-
-            <p align="right">
-                <i>Jumat, 4 September 2026</i>
-            </p>
-
-            <p>PROFIL dan pendidikan Marselino Ferdinan menarik diulas. Sebab, sosok wonderkid sepakbola Indonesia itu tengah jadi sorotan usai resmi dikabarkan gabung Persija Jakarta.Kepindahan Marselino diumumkan Persija pada 23 September 2026. Tepatnya, hal itu terjadi di penghujung masa pendaftaran pemain.</p>
-
-            <a href="selengkapnya2.html">Selanjutnya</a>
-        </td>
-
-        <!-- TAUTAN LINK -->
-        <td valign="top">
-            <h3>Tautan Eksternal</h3>
-            <ol>
-                <li><a href="https://www.mawan.net">Website Mawan</a></li>
-                <li><a href="https://github.com">Github</a></li>
-                <li><a href="https://wikipedia.org">Wikipedia</a></li>
-                <li><a href="https://www.w3schools.com">W3Schools</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <!-- FOOTER -->
-    <tr>
-        <td colspan="2" align="center">
-            <font color="black">
-                <p>Website Jasmine</p>
-            </font>
-
-            <p align="right">
-                <font color="#4CAF50" size="2">
-                    &copy; 2026 Jasmine
+        <!-- HEADER -->
+        <tr>
+            <td colspan="2" align="center">
+                <font color="black">
+                    <h1>Website Jasmine</h1>
+                    <i>Nama Saya Jasmine</i>
                 </font>
-            </p>
-        </td>
-    </tr>
+            </td>
+        </tr>
 
-</table>
+        <!-- MENU 4 HYPERLINK -->
+        <tr>
+            <td colspan="2" align="center">
+                <a href="index.html">Beranda</a> |
+                <a href="Profil.html">Profil</a> |
+                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="kontak.html">Kontak</a>
+            </td>
+        </tr>
+
+        <!-- ISI -->
+        <tr>
+            <td width="650">
+                <h2>Adu Kisaran Gaji Marselino Ferdinan di Oxford United dengan Persija, bak Bumi dan Langit?</h2>
+
+                <p align="right">
+                    <i>Senin, 7 September 2026</i>
+                </p>
+
+                <p>JAKARTA - Adu kisaran gaji Marselino Ferdinan di Oxford United dengan Persija apakah bak bumi dan langit? Besaran gaji Marselino Ferdinan menjadi pembicaraan publik.&nbsp;1. Gaji Marselino Ferdinan di PersijaPersijak Jakarta mendatangkan Marselino Ferdinan secara gratis jelang penutupan bursa transfer Super League 2026-2027. Marselino Ferdinan didatangkan secara gratis usai kontraknya bersama klub kasta ketiga Liga Inggris, Oxford United, berakhir pada 30 Juni 2026.&nbsp;Marselino Ferdinan menandatangani kontrak selama 2 musim bersama Persija Jakarta. Klub berjuluk Macan Kemayoran tersebut tidak mengungkap berapa besaran gaji Marselino Ferdinan.&nbsp;</p>
+
+                <a href="selengkapnya.html">Selanjutnya</a>
+
+                <hr>
+
+                <h2>Profil dan Pendidikan Marselino Ferdinan yang Resmi Gabung Persija Jakarta</h2>
+
+                <p align="right">
+                    <i>Jumat, 4 September 2026</i>
+                </p>
+
+                <p>PROFIL dan pendidikan Marselino Ferdinan menarik diulas. Sebab, sosok wonderkid sepakbola Indonesia itu tengah jadi sorotan usai resmi dikabarkan gabung Persija Jakarta.Kepindahan Marselino diumumkan Persija pada 23 September 2026. Tepatnya, hal itu terjadi di penghujung masa pendaftaran pemain.</p>
+
+                <a href="selengkapnya2.html">Selanjutnya</a>
+            </td>
+
+            <!-- TAUTAN LINK -->
+            <td valign="top">
+                <h3>Tautan Eksternal</h3>
+                <ol>
+                    <li><a href="https://www.mawan.net" target="_blank" rel="noopener noreferrer">Website Mawan</a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
+                    <li><a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
+                    <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2" align="center">
+                <font color="black">
+                    <p>Website Jasmine</p>
+                </font>
+
+                <p align="right">
+                    <font color="#4CAF50" size="2">
+                        &copy; 2026 Jasmine
+                    </font>
+                </p>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- CUTE CLICK SPARKLES -->
+    <script>
+        document.addEventListener("click", function (event) {
+            const target = event.target.closest("a");
+
+            if (!target) return;
+
+            const sparkle = document.createElement("span");
+            const decorations = ["✨", "💛", "🌼", "🍯", "⭐", "🎀"];
+
+            sparkle.className = "click-sparkle";
+            sparkle.textContent =
+                decorations[Math.floor(Math.random() * decorations.length)];
+
+            sparkle.style.left = event.clientX + "px";
+            sparkle.style.top = event.clientY + "px";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(function () {
+                sparkle.remove();
+            }, 750);
+        });
+    </script>
 
 </body>
 </html>
-```
